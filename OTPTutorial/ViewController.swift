@@ -20,58 +20,31 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        txtOTP1.backgroundColor = UIColor.clear
-        txtOTP2.backgroundColor = UIColor.clear
-        txtOTP3.backgroundColor = UIColor.clear
-        txtOTP4.backgroundColor = UIColor.clear
-        txtOTP5.backgroundColor = UIColor.clear
-        txtOTP6.backgroundColor = UIColor.clear
-        
-        txtOTP1.layer.borderColor = UIColor.black.cgColor
-        txtOTP1.layer.borderWidth = 1.0
-        txtOTP1.layer.cornerRadius = 5.0
-        
-        txtOTP2.layer.borderColor = UIColor.black.cgColor
-        txtOTP2.layer.borderWidth = 1.0
-        txtOTP2.layer.cornerRadius = 5.0
-        
-        txtOTP3.layer.borderColor = UIColor.black.cgColor
-        txtOTP3.layer.borderWidth = 1.0
-        txtOTP3.layer.cornerRadius = 5.0
-        
-        txtOTP4.layer.borderColor = UIColor.black.cgColor
-        txtOTP4.layer.borderWidth = 1.0
-        txtOTP4.layer.cornerRadius = 5.0
-        
-        txtOTP5.layer.borderColor = UIColor.black.cgColor
-        txtOTP5.layer.borderWidth = 1.0
-        txtOTP5.layer.cornerRadius = 5.0
-        
-        txtOTP6.layer.borderColor = UIColor.black.cgColor
-        txtOTP6.layer.borderWidth = 1.0
-        txtOTP6.layer.cornerRadius = 5.0
+            
+        addBottomBorderTo2(textField: txtOTP1)
+        addBottomBorderTo2(textField: txtOTP2)
+        addBottomBorderTo2(textField: txtOTP3)
+        addBottomBorderTo2(textField: txtOTP4)
+        addBottomBorderTo2(textField: txtOTP5)
+        addBottomBorderTo2(textField: txtOTP6)
+
+        txtOTP1.becomeFirstResponder()
+    }
+    
+    func addBottomBorderTo2(textField:UITextField) {
+
+        textField.backgroundColor = UIColor.clear
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 1.0
+        textField.layer.cornerRadius = 5.0
+        textField.delegate = self
         
         if #available(iOS 12.0, *) {
-            txtOTP1.textContentType = .oneTimeCode
+            textField.textContentType = .oneTimeCode
         } else {
             // Fallback on earlier versions
         }
         
-//        addBottomBorderTo(textField: txtOTP1)
-//        addBottomBorderTo(textField: txtOTP2)
-//        addBottomBorderTo(textField: txtOTP3)
-//        addBottomBorderTo(textField: txtOTP4)
-        
-        txtOTP1.delegate = self
-        txtOTP2.delegate = self
-        txtOTP3.delegate = self
-        txtOTP4.delegate = self
-        txtOTP5.delegate = self
-        txtOTP6.delegate = self
-        
-        txtOTP1.becomeFirstResponder()
     }
     
     func addBottomBorderTo(textField:UITextField) {
